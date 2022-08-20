@@ -1,0 +1,17 @@
+@import "../../libs/scss/_base.scss";
+
+.app__container {
+  display: flex;
+  margin-top: 10vh;
+}
+
+.home__container {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.row {
+  background-color: $black-secondary;
+  padding-right: 1rem;
+  max-width: 1240px;
+}
