@@ -17,7 +17,7 @@ const SubscriptionsScreen = () => {
   );
 
   return (
-    <Container fluid>
+    <Container className="row" >
       {!loading ? (
         videos?.map((video) => (
           <VideoHorizontal video={video} key={video.id} subScreen />

@@ -51,10 +51,11 @@
     }
 
     button {
-      padding: 0 1.25rem;
+      padding: 0 0.5rem;
       color: $text-color;
       background: transparent;
       border: none;
+
       &:focus {
         border: none;
       }

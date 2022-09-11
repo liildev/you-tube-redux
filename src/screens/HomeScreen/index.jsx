@@ -30,8 +30,6 @@ const HomeScreen = () => {
 
   return (
     <div className="home__container">
-      <CategoriesBar />
-
       <InfiniteScroll
         dataLength={videos.length}
         next={fetchData}
@@ -41,6 +39,8 @@ const HomeScreen = () => {
         }
         className="row"
       >
+        <CategoriesBar />
+
         {!loading
           ? videos.map((video) => (
               <Col lg={3} md={4}>

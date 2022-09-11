@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./_sidebar.scss";
 
 import {
@@ -14,6 +14,8 @@ import { log_out } from "../../redux/actions/auth.action";
 import { Link } from "react-router-dom";
 
 const Sidebar = ({ sidebar, handleToggleSidebar }) => {
+  const [active, setActive] = useState("home");
+
   const dispatch = useDispatch();
   const logOutHandler = () => {
     dispatch(log_out());
@@ -23,32 +25,38 @@ const Sidebar = ({ sidebar, handleToggleSidebar }) => {
       className={sidebar ? "sidebar open" : "sidebar"}
       onClick={() => handleToggleSidebar(false)}
     >
-      <li className="sidebar__list">
-        <Link to="/">
+      <li className={active === "home" ? "sidebar__list active" : "sidebar__list"}>
+        <Link to="/" onClick={() => setActive("home")}>
           <MdHome size={23} />
           <span>Home</span>
         </Link>
       </li>
-      <li className="sidebar__list">
-        <Link to="/feed/subscriptions">
+      <li className={active === "subs" ? "sidebar__list active" : "sidebar__list"}>
+        <Link to="/feed/subscriptions" onClick={() => setActive("subs")}>
           <MdSubscriptions size={23} />
           <span>Subscriptions</span>
         </Link>
       </li>
 
-      <li className="sidebar__list">
-        <MdThumbUp size={23} />
-        <span>Liked Video</span>
+      <li className={active === "like" ? "sidebar__list active" : "sidebar__list"}>
+        <Link to="/liked" onClick={() => setActive("like")}>
+          <MdThumbUp size={23} />
+          <span>Liked Video</span>
+        </Link>
       </li>
 
-      <li className="sidebar__list">
-        <MdHistory size={23} />
-        <span>History</span>
+      <li className={active === "history" ? "sidebar__list active" : "sidebar__list"}>
+        <Link to="/history" onClick={() => setActive("history")}>
+          <MdHistory size={23} />
+          <span>History</span>
+        </Link>
       </li>
 
-      <li className="sidebar__list">
-        <MdLibraryBooks size={23} />
-        <span>Library</span>
+      <li className={active === "library" ? "sidebar__list active" : "sidebar__list"}>
+        <Link to="/library" onClick={() => setActive("library")}>
+          <MdLibraryBooks size={23} />
+          <span>Library</span>
+        </Link>
       </li>
 
       <hr />

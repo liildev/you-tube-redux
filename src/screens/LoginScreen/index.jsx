@@ -9,14 +9,14 @@ import './_loginScreen.scss'
 const LoginScreen = () => {
    const dispatch = useDispatch()
 
-   const accessToken = useSelector(state => state.auth.accessToken)
-
+   
    const handleLogin = () => {
       dispatch(login())
    }
-
+   
    const navigate = useNavigate()
-
+   
+   const accessToken = useSelector(state => state.auth.accessToken)
    useEffect(() => {
       if (accessToken) {
          navigate('/')
@@ -31,7 +31,7 @@ const LoginScreen = () => {
                src={logo}
                alt='logo'
             />
-            <button onClick={handleLogin}>Login With google</button>
+            <button onClick={handleLogin}>Login With Google</button>
             <p>This Project is made using YOUTUBE DATA API</p>
          </div>
       </div>

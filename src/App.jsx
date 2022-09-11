@@ -1,14 +1,14 @@
 import React, { useEffect } from "react";
-import HomeScreen from "./screens/HomeScreen/HomeScreen";
-import LoginScreen from "./screens/LoginScreen/LoginScreen";
-
 import { Route, Routes, useNavigate } from "react-router-dom";
-
 import { useSelector } from "react-redux";
-import WatchScreen from "./screens/WatchScreen/WatchScreen";
-import SearchScreen from "./screens/SearchScreen/SearchScreen";
-import SubscriptionsScreen from "./screens/SubscriptionsScreen/SubscriptionsScreen";
-import ChannelScreen from "./screens/ChannelScreen/ChannelScreen";
+import {
+  HomeScreen,
+  SearchScreen,
+  WatchScreen,
+  SubscriptionsScreen,
+  LoginScreen,
+  ChannelScreen,
+} from "./screens";
 import Layout from "./components/Layout/Layout";
 
 import "./libs/scss/_app.scss";
@@ -72,6 +72,32 @@ const App = () => {
         }
       />
 
+      <Route
+        path="/liked"
+        element={
+          <Layout>
+            <h2>Liked</h2>
+          </Layout>
+        }
+      />
+
+      <Route
+        path="/history"
+        element={
+          <Layout>
+            <h2>History</h2>
+          </Layout>
+        }
+      />
+
+      <Route
+        path="/library"
+        element={
+          <Layout>
+            <h2>Library</h2>
+          </Layout>
+        }
+      />
       <Route path="/auth" element={<LoginScreen />} />
     </Routes>
   );
